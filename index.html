@@ -99,7 +99,14 @@
 
         // Тоглоомыг дахин тохируулах функц
         function resetGame() {
-
+            clearInterval(timer);
+            seconds = 0;
+            document.getElementById('timer').innerText = `Time: 0 seconds`;
+            const gameBoard = document.getElementById('game-board');
+            gameBoard.innerHTML = '';
+            matchedPairs = 0;
+            createGameBoard();
+            timer = setInterval(updateTimer, 1000);
         }
 
         // Тоглоомыг эхлүүлэх
