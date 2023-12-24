@@ -30,8 +30,16 @@
         function createGameBoard() {
         const shuffledCards = shuffleArray(cards);
         const gameBoard = document.getElementById('game-board');
+        for (const symbol of shuffledCards) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.textContent = symbol;
+        card.addEventListener('click', () => flipCard(card));
+
+        gameBoard.appendChild(card);
         }
-        
+        }
+
     </script>
 </body>
 </html>
