@@ -44,14 +44,14 @@
         // Карт эргүүлэх ажиллагааг зохицуулах функц
         function flipCard(card) {
             if (openedCards.length < 2 && !openedCards.includes(card) && !card.classList.contains('flipped')) {
-            card.classList.add('flipped');
-            openedCards.push(card);
+               card.classList.add('flipped');
+               openedCards.push(card);
 
-            if (openedCards.length === 2) {
-            setTimeout(checkMatch, 800);
+                if (openedCards.length === 2) {
+                setTimeout(checkMatch, 800);
             }
-          }
         }
+    }
 
         // Нээлттэй картууд таарч байгаа эсэхийг шалгах функц
         function checkMatch() {
