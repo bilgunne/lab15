@@ -49,14 +49,47 @@
 
                 if (openedCards.length === 2) {
                 setTimeout(checkMatch, 800);
+                }
             }
         }
-    }
 
         // Нээлттэй картууд таарч байгаа эсэхийг шалгах функц
         function checkMatch() {
+            const [card1, card2] = openedCards;
 
+            if (card1.textContent === card2.textContent) {
+            card1.removeEventListener('click', () => flipCard(card1));
+            card2.removeEventListener('click', () => flipCard(card2));
+            card1.classList.add('matched');
+            card2.classList.add('matched');
+            matchedPairs++;
+
+               if (matchedPairs === symbols.length) {
+               showCelebrationMessage();
+               clearInterval(timer);
+               }
+            } else {
+                setTimeout(() => {
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+                }, 300);
+            }
+
+            openedCards = [];
         }
+
+            function showCelebrationMessage() {
+              const celebrationMessage = document.getElementById('celebration-message');
+              celebrationMessage.style.display = 'block';
+              setTimeout(() => {
+              celebrationMessage.style.opacity = '0';
+              setTimeout(() => {
+              celebrationMessage.style.display = 'none';
+              celebrationMessage.style.opacity = '1';
+              resetGame();
+                }, 500);
+              }, 2000);
+            }
 
         // Цаг явуулах функц
         function updateTimer() {
