@@ -9,5 +9,14 @@
     <div id="timer">Time: 0 seconds</div>
     <div id="game-board"></div>
     <div id="celebration-message">Congratulations! You matched all pairs!</div>
+
+    <script>
+        const symbols = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🐮', '🐷'];
+        const cards = [...symbols, ...symbols];
+        let openedCards = [];
+        let matchedPairs = 0;
+        let timer;
+        let seconds = 0;
+    </script>
 </body>
 </html>
